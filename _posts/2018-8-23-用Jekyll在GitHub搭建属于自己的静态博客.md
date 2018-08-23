@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "用Jekyll在GitHub搭建属于自己的静态博客"
+title: "用Jekyll在Github搭建属于自己的静态博客"
 author: "骆小喵"
 categories: learning
 tags: [learning]
