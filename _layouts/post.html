@@ -1,81 +1,41 @@
 ---
 layout: default
 ---
-
-<div class="page-content">
-  <h1>
-    {{ page.title }}
-  </h1>
-
-  <span class="post-date">
-    {{ site.data.settings.post_date_prefix }}
-    {% assign d = page.date | date: "%-d"  %}
-    {{ page.date | date: "%B" }}
-    {% case d %}
-      {% when '1' or '21' or '31' %}{{ d }}st
-      {% when '2' or '22' %}{{ d }}nd
-      {% when '3' or '23' %}{{ d }}rd
-      {% else %}{{ d }}th{% endcase %},
-    {{ page.date | date: "%Y" }}
-    by
-    {% if page.author %}
-      {{ page.author }}
-    {% else %}
-      {{ site.author }}
-    {% endif %}
-  </span>
-
-  {% if page.image %}
-    <div class="featured-image">
-      <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
-    </div>
+<article {% if page.feature-img %}class="feature-image"{% endif %}>
+  <header id="main" style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
+    <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
+    <p class="meta">
+    {{ page.date | date: "%B %-d, %Y" }}
+    {% if page.author %} - {{ page.author }}{% endif %}
+    </p>
+  </header>
+  <section class="post-content">
+  {% if page.bootstrap %}
+  <div class="bootstrap-iso">
   {% endif %}
-
-  <article>
     {{ content }}
-  </article>
-
-  <div class="post-share">
-    <div class="post-date">{{ site.data.settings.sharing_button_prompt }}</div>
-    <div class="sharing-icons">
-      <a href="https://twitter.com/intent/tweet?text={{ page.title }}&amp;url={{ site.github.url }}{{ page.url }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.github.url }}{{ page.url }}&amp;title={{ page.title }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-      <a href="https://plus.google.com/share?url={{ site.github.url }}{{ page.url }}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-    </div>
+  {% if page.bootstrap %}
   </div>
-
-  <div class="related">
-    <h2>{{ site.data.settings.related_posts }}</h2>
-    {% assign listed_posts_urls = page.url | split: ' ' %}
-    <ul class="related-posts">
-      {% for tag in page.tags %}
-        {% for mypost in site.tags[tag] limit:2 %}
-          {% if listed_posts_urls contains mypost.url %}
-          {% else %}
-            <li>
-              <h3>
-                <a href="{{ site.github.url }}{{ mypost.url }}">
-                  <div class="related-thumbnail">
-                    {% if mypost.image %}
-                      <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ mypost.image }}">
-                    {% endif %}
-                  </div>
-                  <div class="related-title">
-                    {{ mypost.title }}
-                  </div>
-                  <!--<small>{{ mypost.date | date: "%B %-d, %Y" }}</small>-->
-                </a>
-              </h3>
-            </li>
-            {% assign listed_posts_urls = listed_posts_urls | push: mypost.url %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-    </ul>
-  </div>
-
-  {% if site.data.settings.disqus.comments %}
-    {% include disqus.html %}
   {% endif %}
+  </section>
+  
+  <!-- Social media shares -->
+  {% include share_buttons.html %}
+   
+   <!-- Tag list -->
+  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
+  {% include tags_list.html tags=tag_list %}
+    
+</article>
 
+<!-- Disqus -->
+{% if site.theme_settings.disqus_shortname %}
+<div class="comments">
+  {% include disqus.html %}
 </div>
+{% endif %}
+
+<!-- Post navigation -->
+{% if site.theme_settings.post_navigation %}
+  {% include post_nav.html %}
+{% endif %}

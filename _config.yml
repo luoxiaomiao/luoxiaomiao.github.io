@@ -1,23 +1,89 @@
-# Site Build Settings
+# SITE CONFIGURATION
+# baseurl: "/Type-on-Strap"
+# url: "https://sylhare.github.io"
+title: 骆小喵的博客 # site's title
+description: "骆小喵的家" # used by search engines
 
-# jekyll-paginate configuration
-paginate:            5
 
-# Build settings
-markdown:            kramdown
-highlighter:         rouge
-permalink:           none
-plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+# THEME-SPECIFIC CONFIGURATION
+theme_settings:
+  title: 骆小喵的博客 # blog's title
+  avatar: assets/img/triangle.svg
+  favicon: assets/favicon.ico
+  gravatar: # Email MD5 hash
 
+  # Header and footer text
+  header_text: > #two or three lines to describe your site
+     <p>欢迎来到我家 <br> 请随便逛逛</p>
+  header_text_feature_image: assets/img/page/home.jpeg
+  footer_text: >
+   写点随笔感慨的心灵净土 By 骆小喵
+
+  # Icons
+  rss: false  # Make sure you created a feed.xml with feed.xml layout
+  email_address: # Full email address, e.g. "sam@example.com"
+  github: "luoxiaomiao"
+  
+  # Sharing options
+  share_buttons:
+    facebook: true
+    twitter: true
+    email: true
+
+  # Scripts / Features 
+  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname:
+  katex: true # Enable if using math markup
+  
+  special_page:
+    search: 
+      icon: "search"
+      enabled: true
+    tags:
+      icon: "tags"
+      enabled: true
+  
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_share_on: "Share on"
+  str_add_to: "Add to"
+  str_email: "Email"
+  str_tweet: "Tweet"
+  str_pin_it: "Pin it"
+  str_next_post: "下一篇文章"
+  str_previous_post: "上一篇文章"
+  str_next_page: "下一页"
+  str_previous_page: "上一页"
+  str_continue_reading: "继续浏览其他有趣文章......"
+  str_javascript_required_disqus: "Please enable JavaScript to view comments."
+
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
+  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
+
+  # Post navigation
+  post_navigation: true
+  
+  
+# PAGINATION
+paginate: 5
+paginate_path: "blog/page:num"
+
+
+# PORTFOLIO
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:name
+
+
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: rouge
 sass:
-  sass_dir: assets/css
-  style: :nested
-
-# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "骆小喵的博客"
-description:	       "写点随笔感慨的心灵净土"
-author:              "骆小喵"
-
-# RSS 2.0 can be used instead of Atom by uncommenting following two lines
-#feed:
-#  path: rss-feed.xml
+  sass_dir: _sass
+  style: :compressed
+plugins: [jekyll-paginate, jekyll-seo-tag]
+#theme: type-on-strap # Uncomment if using the theme as a jekyll theme gem
+exclude: ["Gemfile", "Gemfile.lock", "type-on-strap.gemspec", "*.gem", "LICENSE", "README.md", "screenshot.png", "package.json", "node_modules", "gulpfile.js", ".idea/*"]
