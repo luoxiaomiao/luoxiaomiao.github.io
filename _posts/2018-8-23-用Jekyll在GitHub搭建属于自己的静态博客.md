@@ -4,8 +4,8 @@ title: "用Jekyll在Github搭建属于自己的静态博客"
 author: "骆小喵"
 categories: learning
 tags: [learning]
-feature-img: "assets/img/article/jekyll.jpeg"
-thumbnail: "assets/img/article/jekyll.jpeg"
+feature-img: "assets/img/article/jekyll.jpg"
+thumbnail: "assets/img/article/jekyll.jpg"
 ---
 
 #### 一、搭建本地Jekyll环境

@@ -15,7 +15,7 @@ theme_settings:
   # Header and footer text
   header_text: > #two or three lines to describe your site
      <p>欢迎来到我家 <br> 请随便逛逛</p>
-  header_text_feature_image: assets/img/page/home.jpeg
+  header_text_feature_image: assets/img/page/home.jpg
   footer_text: >
    写点随笔感慨的心灵净土 By 骆小喵
 
