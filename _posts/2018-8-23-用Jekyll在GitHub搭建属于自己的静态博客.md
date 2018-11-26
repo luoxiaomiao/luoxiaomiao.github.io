@@ -10,49 +10,47 @@ thumbnail: "assets/img/article/jekyll.jpg"
 
 #### 一、搭建本地Jekyll环境
 
-##### 安装jekyll会用到ruby,最好不要用系统自带的，使用系统提供的ruby会出现没有权限问题，建议使用rbenv新安装一个ruby使用。
-检查本地是否安装了rbenv
+*注：安装jekyll会用到ruby，最好不要用系统自带的，使用系统提供的ruby会出现没有权限问题，建议使用rbenv新安装一个ruby使用。*
+
+- 检查本地是否安装了rbenv
 ```
 $ rbenv -v
 ```
-检查本地ruby是否是系统ruby
+- 检查本地ruby是否是系统ruby
 ```
 $ ruby -v
 $ which ruby
 ```
-
-安装rbenv
+- 安装rbenv
 ```
 $ brew install rbenv
 ```
-查看可以安装的ruby版本
+- 查看可以安装的ruby版本
 ```
 $ rbenv install --list
 ```
-安装制定的ruby版本
+- 安装制定的ruby版本
 ```
 $ rbenv install 2.3.7 #安装3.3.7版本
 ```
-设置全局ruby版本
+- 设置全局ruby版本
 ```
 $ rbenv global 2.3.7 #设置新安装的2.3.7版本为全局版本
 $ gem env home #验证gem
 ```
-使用gem安装Jekyll
+- 使用gem安装Jekyll
 ```
 $ gem install jekyll
 ```
-安装bundler
+- 安装bundler
 ```
 $ gem install bundler
 ```
-
-使用Jekyll创建博客仓库
+- 使用Jekyll创建博客仓库
 ```
 $ jekyll new blog
 ```
-
-进入blog目录 开启Jekyll服务
+- 进入blog目录 开启Jekyll服务
 ```
 $ cd blog
 $ jekyll serve
@@ -110,4 +108,4 @@ $ jekyll serve --detach
 ##### 3.疑难杂症解决链接
 [You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory](https://github.com/rbenv/rbenv/issues/938#issuecomment-285342541)
 
-##### 4.其他问题，尝试删除Gemfile.lock文件然后```bundle install```。
+##### 4.其他问题，尝试删除Gemfile.lock文件然后`bundle install`。
