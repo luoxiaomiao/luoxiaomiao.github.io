@@ -9,14 +9,51 @@ thumbnail: "assets/img/article/jekyll.jpg"
 ---
 
 #### 一、搭建本地Jekyll环境
+
+##### 安装jekyll会用到ruby,最好不要用系统自带的，使用系统提供的ruby会出现没有权限问题，建议使用rbenv新安装一个ruby使用。
+检查本地是否安装了rbenv
+```
+$ rbenv -v
+```
+检查本地ruby是否是系统ruby
+```
+$ ruby -v
+$ which ruby
+```
+
+安装rbenv
+```
+$ brew install rbenv
+```
+查看可以安装的ruby版本
+```
+$ rbenv install --list
+```
+安装制定的ruby版本
+```
+$ rbenv install 2.3.7 #安装3.3.7版本
+```
+设置全局ruby版本
+```
+$ rbenv global 2.3.7 #设置新安装的2.3.7版本为全局版本
+$ gem env home #验证gem
 ```
 使用gem安装Jekyll
+```
 $ gem install jekyll
+```
+安装bundler
+```
+$ gem install bundler
+```
 
 使用Jekyll创建博客仓库
+```
 $ jekyll new blog
+```
 
 进入blog目录 开启Jekyll服务
+```
 $ cd blog
 $ jekyll serve
 ```
@@ -64,8 +101,13 @@ $ jekyll serve --detach
 ├── .jekyll-metadata	  (该文件帮助 Jekyll 跟踪哪些文件从上次建立站点开始到现在没有被修改，哪些文件需要在下一次站点建立时重新生成。该文件不会被包含在生成的站点中。)
 └── index.html 		   (网站的index)
 ```
+
 #### 四、最后一些链接
-###### 1. 主题网站，喜欢哪个下载下来改改CSS就可以用了
+##### 1. 主题网站，喜欢哪个下载下来改改CSS就可以用了
 [Jekyll主题网站](http://jekyllthemes.org/)
-###### 2. 冰霜之地大神的博客
+##### 2. 冰霜之地大神的博客
 [如何快速给自己构建一个温馨的"家"——用 Jekyll 搭建静态博客](https://halfrost.com/jekyll/)
+##### 3.疑难杂症解决链接
+[You don't have write permissions for the /Library/Ruby/Gems/2.0.0 directory](https://github.com/rbenv/rbenv/issues/938#issuecomment-285342541)
+
+##### 4.其他问题，尝试删除Gemfile.lock文件然后```bundle install```。
