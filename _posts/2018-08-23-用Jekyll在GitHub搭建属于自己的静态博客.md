@@ -12,30 +12,12 @@ thumbnail: "assets/img/article/jekyll.jpg"
 
 *注：安装jekyll会用到ruby，最好不要用系统自带的，使用系统提供的ruby会出现没有权限问题，建议使用rbenv新安装一个ruby使用。*
 
-- 检查本地是否安装了rbenv
-```
-$ rbenv -v
-```
-- 检查本地ruby是否是系统ruby
-```
-$ ruby -v
-$ which ruby
-```
-- 安装rbenv
-```
-$ brew install rbenv
-```
-- 查看可以安装的ruby版本
-```
-$ rbenv install --list
-```
-- 安装制定的ruby版本
-```
-$ rbenv install 2.3.7 #安装3.3.7版本
-```
+具体使用rbenv安装ruby可以参考：
+[Mac环境配置](https://omiao.cc/learning/2019/02/25/Mac%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html)
+
 - 设置全局ruby版本
 ```
-$ rbenv global 2.3.7 #设置新安装的2.3.7版本为全局版本
+$ rbenv global 2.6.0 #例如设置新安装的2.6.0版本为全局版本
 $ gem env home #验证gem
 ```
 - 使用gem安装Jekyll
